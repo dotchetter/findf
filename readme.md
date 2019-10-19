@@ -48,11 +48,13 @@ findf -Extension mp4 -startDir C:\ -toJson | Out-File .\MySongs.json
 
    
 
-2. Download this repository.
+2. Download this repository by clicking on the green **Clone or download** button on this page, and choose "Download ZIP"
 
-3. Open PowerShell and navigate to the **location** of the now extracted **findf-master** folder.
+3. Right click the downloaded .zip file -> Click 'Extract'
 
-4. Copy and paste these commands in your PowerShell terminal:
+4. Open PowerShell and navigate to the **location** of the now extracted **findf-master** folder.
+
+5. Copy and paste these commands in your PowerShell terminal:
 
    ```powershell
    mv '.\findf-master\findf-master' '.\findf-master\findf'
@@ -62,7 +64,7 @@ findf -Extension mp4 -startDir C:\ -toJson | Out-File .\MySongs.json
    mv '.\findf-master\findf' 'C:\Program Files\WindowsPowerShell\Modules\'
    ```
 
-5. Close the terminal and open a new one. Try the command by typing **findf**. 
+6. Close the terminal and open a new one. Try the command by typing **findf**. 
 
 ## Help
 
