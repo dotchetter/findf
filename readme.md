@@ -1,6 +1,6 @@
 # findf
 
-#### Cmdlet for easier, faster-than-GUI and more responsive search for files or directories using the command line.
+#### Cmdlet for easier, faster-than-GUI and more responsive search for files or directories using the command line, returning only full path for every found item.
 
 ## About
 
@@ -34,23 +34,35 @@ This way you can export the path of every single .Mp4 file on a given volume to 
 findf -Extension mp4 -startDir C:\ -toJson | Out-File .\MySongs.json
 ```
 
-
-
 ## Installation
 
-**findf** is already a packed-and-done PowerShell module. To install it, follow these steps:
+**findf** is already a packed-and-done PowerShell module. To install it, follow these steps.
 
-1. Create a folder on your desktop called **Findf**
+**Note: The module is not digitally signed. Since the source code is right here, I trust you've seen that this code is not malicious. In order for you to be able to use the module in your system, the Execution policy needs to be set to Bypass or Unrestricted. I prefer Bypass, since Unrestricted still warns when you use the module.* You can read up on Execution Policies here: https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6
 
-2. download the .psm1 and psd1 files you see here, to the findf folder you just created
-
-3. copy and paste this command in your PowerShell terminal:
+1. Set the execution policy to Unrestricted using an **Administrator** PowerShell window:
 
    ```powershell
-   Move-Item $home\desktop\Findf C:\Program Files\WindowsPowerShell\Modules
+   Set-Executionpolicy Unrestricted
    ```
 
-4. Close the terminal and re-open a new one. Try the command by typing **findf**. 
+   
+
+2. Download this repository.
+
+3. Open PowerShell and navigate to the **location** of the now extracted **findf-master** folder.
+
+4. Copy and paste these commands in your PowerShell terminal:
+
+   ```powershell
+   mv '.\findf-master\findf-master' '.\findf-master\findf'
+   ```
+
+   ```powershell
+   mv '.\findf-master\findf' 'C:\Program Files\WindowsPowerShell\Modules\'
+   ```
+
+5. Close the terminal and open a new one. Try the command by typing **findf**. 
 
 ## Help
 
