@@ -43,7 +43,7 @@ findf -Extension mp4 -startDir C:\ -toJson | Out-File .\MySongs.json
 1. Set the execution policy to Unrestricted using an **Administrator** PowerShell window:
 
    ```powershell
-   Set-Executionpolicy Unrestricted
+   Set-Executionpolicy Bypass
    ```
 
    
