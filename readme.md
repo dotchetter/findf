@@ -40,7 +40,7 @@ findf -Extension mp4 -startDir C:\ -toJson | Out-File .\MySongs.json
 
 **Note: The module is not digitally signed. Since the source code is right here, I trust you've seen that this code is not malicious. In order for you to be able to use the module in your system, the Execution policy needs to be set to Bypass or Unrestricted. I prefer Bypass, since Unrestricted still warns when you use the module.* You can read up on Execution Policies here: https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6
 
-1. Set the execution policy to Unrestricted using an **Administrator** PowerShell window:
+1. Set the execution policy to Bypass using an **Administrator** PowerShell window:
 
    ```powershell
    Set-Executionpolicy Bypass
