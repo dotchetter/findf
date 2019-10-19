@@ -6,6 +6,10 @@
 
 I wrote **findf** in one night, because PowerShell. I just felt the need to create a new custom cmdlet that would let me search for files the way I like it; *in the terminal* - but still without the unnecessary line breaks, storage and editing information that comes with using **ls** or **Get-ChildItem** without a bunch of switches or piping. Ya know, sometimes you just want to find the file, or the **files** and be done with it.
 
+To see me compare the built-in search in Windows Explorer with findf which uses PowerShell's Get-ChildItem, check out this video where I look for GTA 5 mod files (.oiv) by extension. The results are pretty interesting. Not only is findf faster but also returns **almost twice** as many results as explorer without showing duplicates:
+
+https://www.youtube.com/watch?v=s1X9F5JIQ-w
+
 I also realized the need for something that can be called by automation. What if you need to look over a volume every day and see if a certain file is still present that returns a bool? Or, maybe you need to do an inventory of all your .JPEG picture files on your computer but want to save the output in a serialized format, like JSON.
 
 **findf** was the solution for this, where you can specify your query with a few easy command switches. 
