@@ -72,7 +72,7 @@ Function Findf
     )
     if (-not $Name -and -not $Extension)
     {
-        Write-Warning "You must provide either file name or extension. Type 'Get Help findf -Examples' for help with examples."
+        Write-Warning "You must provide either file name or extension. Type 'Help findf -Examples' for help with examples."
         break
     }
     elseif (-not $startDir)
