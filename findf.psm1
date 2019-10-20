@@ -44,7 +44,7 @@
  find -Extension 'dat' -toJson 
  
 .LINK 
- https://github.com/jay0lee/GAM  
+ https://github.com/dotchetter/findf
 #>
 
 Function Findf
