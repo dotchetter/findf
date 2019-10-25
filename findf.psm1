@@ -94,8 +94,12 @@ Function ToBool
     param([Array]$Objects)
     if ($Objects.Count -gt 0)
     {
-        $true
-    } 
+        return $true
+    }
+    else
+    {
+        return $false
+    }
 }
 
 Function ToJson
@@ -103,7 +107,7 @@ Function ToJson
     param([Array]$Objects)
     if ($Objects.Count -gt 0)
     {
-        ConvertTo-Json $Objects
+        return ConvertTo-Json $Objects
     }
 }
 
@@ -207,6 +211,7 @@ Function Findf
         Write-Host $searchResult.Count -NoNewLine -ForegroundColor $countColor
         Write-Host " objects that matched " -NoNewLine -ForegroundColor Yellow
         Write-Host $Name
-        $searchResult | Sort-Object -Property Length -Descending
+       
+        return  $searchResult | Sort-Object -Property Length -Descending
     }
 }
