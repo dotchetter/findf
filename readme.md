@@ -6,6 +6,15 @@
 
 I wrote **findf** in one night, because PowerShell. I just felt the need to create a new custom cmdlet that would let me search for files the way I like it; *in the terminal* - but still without the unnecessary line breaks, storage and editing information that comes with using **ls** or **Get-ChildItem** without a bunch of switches or piping. Ya know, sometimes you just want to find the file, or the **files** and be done with it.
 
+**In short**: the findf cmdlet helps you find files or folders in your system from the PowerShell terminal. It helps you get the path of a directory, any file with a certain extension, any file with a certain name in a breeze. 
+
+It can also speed up the process of using **cd**. I get sick of **cd**'ing manually after a while. With findf, simply search for the directory you want to navigate to and add the **-d** parameter to search for directories only. Then add the **| cd** after the command to navigate there.
+
+```powershell
+# Instantly navigate to the CLOSEST directory (in an event of many hits) with given name you specify;
+findf my_project_dir -d | cd 
+```
+
 To see me compare the built-in search in Windows Explorer with findf which uses PowerShell's Get-ChildItem, check out this video where I look for GTA 5 mod files (.oiv) by extension. The results are pretty interesting. Not only is findf faster but also returns **almost twice** as many results as explorer without showing duplicates:
 
 https://www.youtube.com/watch?v=s1X9F5JIQ-w
