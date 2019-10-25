@@ -68,7 +68,7 @@ findf -Extension mp4 -startDir C:\ -toJson | Out-File .\MySongs.json
 5. Copy and paste this command in your PowerShell terminal:
 
    ```powershell
-   Expand-Archive .\findf-master.zip -DestinationPath "C:\Program Files\WindowsPowerShell\Modules"; mv "C:\Program Files\WindowsPowerShell\Modules\findf-master" "C:\Program Files\WindowsPowerShell\Modules\findf
+   Expand-Archive .\findf-master.zip -DestinationPath "C:\Program Files\WindowsPowerShell\Modules"; mv "C:\Program Files\WindowsPowerShell\Modules\findf-master" "C:\Program Files\WindowsPowerShell\Modules\findf"
    ```
 
 
