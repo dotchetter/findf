@@ -1,3 +1,75 @@
+
+Function ToBool
+{
+    param([Array]$Objects)
+    if ($Objects.Count -gt 0)
+    {
+        return $true
+    }
+    else
+    {
+        return $false
+    }
+}
+
+Function ToJson
+{
+    param([Array]$Objects)
+    if ($Objects.Count -gt 0)
+    {
+        return ConvertTo-Json $Objects
+    }
+}
+
+Function SearchDirectories
+{
+    Param([String]$Name, [String]$StartDir)
+    
+    $directoriesOnly = @()
+
+    if ((Test-Path -Path  "$StartDir\$Name") -and (Test-Path "$StartDir\$Name" -IsValid))
+    {
+        $directoriesOnly += "$StartDir\$Name"
+    }
+    
+    foreach ($i in Get-ChildItem $StartDir\$Name -Recurse -ErrorAction SilentlyContinue -Force)
+    {
+        if ($i.GetType() -match 'System.IO.DirectoryInfo')
+        {
+            $directoriesOnly += $i.FullName
+        }
+    }
+    return $directoriesOnly
+}
+
+Function SearchFiles
+{
+    param([String]$Name, [String]$StartDir, [Boolean]$SearchByExtension = $false)
+
+    $foundFiles = @()
+
+    if ($SearchByExtension)
+    {
+        foreach ($Item in Get-ChildItem $StartDir -Recurse -ErrorAction SilentlyContinue -Force)
+        {
+            if ($Item.Extension -match $Name)
+            {
+                $foundFiles += $Item.FullName
+            }
+        }
+    }
+    else
+    {
+        foreach ($Item in Get-ChildItem "$StartDir\$Name*" -Recurse -ErrorAction SilentlyContinue -Force)
+        {
+            $foundFiles += $Item.FullName
+        }
+    }
+    return $foundFiles
+}
+
+Function Findf
+{
 <# 
 
 .SYNOPSIS
@@ -88,78 +160,6 @@
 .LINK 
  https://github.com/dotchetter/findf
 #>
-
-Function ToBool
-{
-    param([Array]$Objects)
-    if ($Objects.Count -gt 0)
-    {
-        return $true
-    }
-    else
-    {
-        return $false
-    }
-}
-
-Function ToJson
-{
-    param([Array]$Objects)
-    if ($Objects.Count -gt 0)
-    {
-        return ConvertTo-Json $Objects
-    }
-}
-
-Function SearchDirectories
-{
-    Param([String]$Name, [String]$StartDir)
-    
-    $directoriesOnly = @()
-
-    if ((Test-Path -Path  "$StartDir\$Name") -and (Test-Path "$StartDir\$Name" -IsValid))
-    {
-        $directoriesOnly += "$StartDir\$Name"
-    }
-    
-    foreach ($i in Get-ChildItem $StartDir\$Name -Recurse -ErrorAction SilentlyContinue -Force)
-    {
-        if ($i.GetType() -match 'System.IO.DirectoryInfo')
-        {
-            $directoriesOnly += $i.FullName
-        }
-    }
-    return $directoriesOnly
-}
-
-Function SearchFiles
-{
-    param([String]$Name, [String]$StartDir, [Boolean]$SearchByExtension = $false)
-
-    $foundFiles = @()
-
-    if ($SearchByExtension)
-    {
-        foreach ($Item in Get-ChildItem $StartDir -Recurse -ErrorAction SilentlyContinue -Force)
-        {
-            if ($Item.Extension -match $Name)
-            {
-                $foundFiles += $Item.FullName
-            }
-        }
-    }
-    else
-    {
-        foreach ($Item in Get-ChildItem "$StartDir\$Name*" -Recurse -ErrorAction SilentlyContinue -Force)
-        {
-            $foundFiles += $Item.FullName
-        }
-    }
-    return $foundFiles
-}
-
-Function Findf
-{
     param(
         [CmdletBinding()][Parameter(Position = 0)][String]$Name = $Null,
         [CmdletBinding()][Parameter(Position = 1)][String]$StartDir = $Null,
