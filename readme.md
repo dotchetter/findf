@@ -2,8 +2,6 @@
 
 #### Cmdlet for easier, faster-than-GUI and more responsive search for files or directories using the command line, returning only full path for every found item.
 
-![](C:\Users\admin\Git\findf\Anteckning 2019-10-26 121150.png)
-
 ## About
 
 I wrote **findf** in one night, because PowerShell. I just felt the need to create a new custom cmdlet that would let me search for files the way I like it; *in the terminal* - but still without the unnecessary line breaks, storage and editing information that comes with using **ls** or **Get-ChildItem** without a bunch of switches or piping. Ya know, sometimes you just want to find the file, or the **files** and be done with it.
@@ -16,10 +14,6 @@ It can also speed up the process of using **cd**. I get sick of **cd**'ing manua
 # Instantly navigate to the CLOSEST directory (in an event of many hits) with given name you specify;
 findf my_project_dir -d | cd 
 ```
-
-**Here's me navigating to the games folder for Steam just as an example**
-
-![image-20191026122203515](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20191026122203515.png)
 
 To see me compare the built-in search in Windows Explorer with findf which uses PowerShell's Get-ChildItem, check out this video where I look for GTA 5 mod files (.oiv) by extension. The results are pretty interesting. Not only is findf faster but also returns **almost twice** as many results as explorer without showing duplicates:
 
@@ -52,8 +46,6 @@ This way you can export the path of every single .Mp4 file on a given volume to 
 ```powershell
 findf -Extension mp4 -startDir C:\ -toJson | Out-File .\MySongs.json
 ```
-
-![]()
 
 ## Installation
 
